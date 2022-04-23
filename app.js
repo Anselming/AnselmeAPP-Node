@@ -32,6 +32,10 @@ DATA.SyncModelOnDatabase(usuario);
 // - Parse da Model em ViewModel
 // - Exibição para o FrontEnd das Controllers através de API's
 // - Construção do FrontEnd
+
+// Próximos passos
+// - Adicionar Login
+// - Utilizar Template de layout de mercado
 // - Fazer a aplicação funcionar fim-a-fim
 
 
