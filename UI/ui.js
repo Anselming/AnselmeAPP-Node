@@ -18,25 +18,32 @@ const UI = (app, express) =>{
 
     // Routes
     var configRoutes = ()=>{
-    // Home
-    app.get("/",(q,s)=>{
-        s.render("home/index");});
+        // Home
+        app.get("/",(q,s)=>{
+            s.render("home/index");});
 
-    // Create User
-    app.get("/user-create",(q,s)=>{
-        s.render("usuario/create");});
+        // Listar usuários
+        app.get("/users-simplificado",(q,s)=>{
+            s.render("usuario/readSimplificado");});      
 
-    // Read User
-    app.get("/user-read",(q,s)=>{
-        s.render("usuario/read");});
-        
-    // Update User
-    app.get("/user-update",(q,s)=>{
-        s.render("usuario/update");});
-        
-    // Delete User
-    app.get("/user-delete",(q,s)=>{
-        s.render("usuario/delete");});        
+        // Listar usuários
+        app.get("/users-completo",(q,s)=>{
+            s.render("usuario/readCompleto");});       
+
+        // Criar usuários
+        app.get("/create-user-simplificado",(q,s)=>{
+            s.render("usuario/createSimplificado");});       
+
+        // Criar usuários
+        app.get("/create-user-completo",(q,s)=>{
+            s.render("usuario/createCompleto");});  
+            
+        // Criar Usuario Simplificado
+        app.post("/newuser-simplificado",(q,s)=>{
+            s.render("usuario/criadoComSucesso");});
+            
+        app.post("/newuser-completo",(q,s)=>{
+            s.render("usuario/criadoComErro");});      
 
     };
 

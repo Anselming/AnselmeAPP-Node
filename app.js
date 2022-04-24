@@ -39,6 +39,6 @@ const ui = UI(app,express);
 
 
 // Run Server
-//SERVER(app);
+SERVER(app);
     
     
