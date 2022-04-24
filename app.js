@@ -22,12 +22,10 @@ const ui = UI(app,express);
 
 
 
-// Próximos passos
-// - CRUD de models
-// - Crid com os predicates
 
 // Próximos passos
-// - Criar Controllers que expoe métodos relevantes de acesso aos dados
+// - Criar completamente a camada de serviços
+// - Criar Controllers que expoe métodos relevantes de acesso aos dados (usando algumas coisas de serviço)
 // - Parse da Model em ViewModel
 // - Exibição para o FrontEnd das Controllers através de API's
 // - Construção do FrontEnd
