@@ -5,17 +5,23 @@
 
 <hr />
 
-<table >
+<table border="1">
     <tr>
         <td>Nome</td>
         <td>Sobrenome</td>
         <td>Data de nascimento</td>
     </tr>
 
+    {{#if listExists}} 
+        {{#each usuarios}}
     <tr>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
+        <td>{{this.nome}}</td>
+        <td>{{this.sobrenome}}</td>
+        <td>{{this.dataNascimento}}</td>
+        <td>!! {{this}}</td>
     </tr>
+        {{/each}}
+    {{/if}}
+
 
 </table>

@@ -5,7 +5,7 @@
 
 <hr />
 
-<table >
+<table border="1">
     <tr>
         <td>Nome</td>
         <td>Sobrenome</td>
@@ -23,22 +23,26 @@
         <td>twitter</td>
     </tr>
 
+    {{#if listExists}} 
+        {{#each usuarios}}
     <tr>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
+        <td>{{this.nome}}</td>
+        <td>{{this.sobrenome}}</td>
+        <td>{{this.dataNascimento}}</td>
+        <td>{{this.filhos}}</td>
+        <td>{{this.chapa}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.telefone}}</td>
+        <td>{{this.endereco}}</td>
+        <td>{{this.website}}</td>
+        <td>{{this.github}}</td>
+        <td>{{this.linkedin}}</td>
+        <td>{{this.facebook}}</td>
+        <td>{{this.instagram}}</td>
+        <td>{{this.twitter}}</td>
     </tr>
+        {{/each}}
+    {{/if}}
 
 
 </table>

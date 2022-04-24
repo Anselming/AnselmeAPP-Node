@@ -14,8 +14,11 @@ const usuarioModel = MODEL.getUsuario(SEQUELIZE, connection);
 const express = require("express");
 const e = require("express");
 
+const userController = require("./Controller/userController.js")
+const userService = require("./Service/UserService.js")
+
 const app = express();
-const ui = UI(app,express);
+const ui = UI(app,express,userController,userService, REPOSITORY, MODEL);
 
 
 
@@ -24,11 +27,30 @@ const ui = UI(app,express);
 
 
 // Próximos passos
-// - Criar completamente a camada de serviços
+// - Tela de Listar usuários (READ)
+//          - Simplificada: exibir todos os usuários (Mock)                     -- OK
+//          - Completa: exibir todos os usuários (Mock)                         -- OK
+//          - Criar botão de deletar (Apontar para rota de deleção)             -- pending
+//          - Criar botão de atualizar (Apontar para a rota de atualização)     -- pending
+//          - Simplificada: exibir todos os usuários (sem mock)                 -- OK
+//          - Completa: exibir todos os usuários (sem mock)                     -- OK
+
+// - Tela de Criação (CREATE)        
+//          - Suportar criação simplificada
+//          - Suportar criação completa
+
+// - Tela de Atualizar usuários (UPDATE)
+//          - Suportar atualização simplificada
+//          - Suportar atualização completa
+
+// - Tela de deleção
+//          - Confirmar deleção.
+//          - Deletar com sucesso
+            
 // - Criar Controllers que expoe métodos relevantes de acesso aos dados (usando algumas coisas de serviço)
 // - Parse da Model em ViewModel
 // - Exibição para o FrontEnd das Controllers através de API's
-// - Construção do FrontEnd
+
 
 // Próximos passos
 // - Voltar a estudar o curso

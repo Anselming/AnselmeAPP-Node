@@ -1,6 +1,7 @@
 const handlebars = require("express-handlebars");
 
-const UI = (app, express) =>{
+
+const UI = (app, express, userController, userService, REPOSITORY, MODEL) =>{
 
     var config = (app) =>{
         // handlebars
@@ -22,17 +23,64 @@ const UI = (app, express) =>{
         app.get("/",(q,s)=>{
             s.render("home/index");});
 
-        // Listar usuários
-        app.get("/users-simplificado",(q,s)=>{
-            s.render("usuario/readSimplificado");});      
+
+            function ParseUser(user){
+                var toReturn = []
+                user.forEach((u)=>
+                {
+                    toReturn.push({
+                        nome: u.nome,
+                        sobrenome: u.sobrenome,
+                        dataNascimento: u.dataNascimento,
+                        filhos: u.filhos,
+                        chapa: u.chapa,
+                        email: u.email,
+                        telefone: u.telefone,
+                        endereco: u.endereco,
+                        website: u.website,
+                        github: u.github,
+                        linkedin: u.linkedin,
+                        facebook: u.facebook,
+                        instagram: u.instagram,
+                        twitter: u.twitter
+                    });
+                });
+                return toReturn };
 
         // Listar usuários
-        app.get("/users-completo",(q,s)=>{
-            s.render("usuario/readCompleto");});       
+        app.get("/users-simplificado",(q,s)=>
+        {
+            userController.getUsersSimplificado(REPOSITORY, MODEL, userService)
+            .then((u) => 
+            {
+                s.render("usuario/readSimplificado",
+                {   
+                    listExists:true, 
+                    usuarios: ParseUser(u)
+                });                                  
+            })
+            .catch(err => console.log(err));                
+        });
+                
+        app.get("/users-completo",(q,s)=>
+        {
+            userController.getUsersCompleto(REPOSITORY, MODEL, userService)
+            .then((u) => 
+            {
+                s.render("usuario/readCompleto",
+                {   
+                    listExists:true, 
+                    usuarios: ParseUser(u)
+                });                                  
+            })
+            .catch(err => console.log(err));                
+        });  
+                
+    
 
         // Criar usuários
         app.get("/create-user-simplificado",(q,s)=>{
-            s.render("usuario/createSimplificado");});       
+            s.render("usuario/createSimplificado");}); 
 
         // Criar usuários
         app.get("/create-user-completo",(q,s)=>{
